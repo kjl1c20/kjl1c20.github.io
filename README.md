@@ -1,5 +1,5 @@
-# portfolio
-The key projects that I worked on in my previous employment in Dynamon.
+# Data & Analytics Engineering Portfolio
+A showcase of key projects delivered during my tenure at Dynamon as a Analytics Engineer, covering data pipeline design, financial modelling, and performance optimisation.
 
 
 ## Emissions Data Quality & Transformation Pipeline
@@ -35,11 +35,15 @@ Clients required a comprehensive Total Cost of Ownership (TCO) analysis to asses
 - Enabled stakeholders to make data-driven financial decisions when evaluating the transition from ICE to electric vehicles.
 - Bridged the gap between technical data modelling and business insight by delivering clear, accessible outputs for non-technical users.
 ### Example Visualisation
-Table: Total cost breakdown for current vs All EV Replacement scenario.
+<p align="center">Table: Total cost breakdown for current vs All EV Replacement scenario.</p>
 <img width="2048" height="573" alt="-" src="https://github.com/user-attachments/assets/69dfcb6c-a2d5-424b-82dd-7a4946e19142" />
 
+<br>
+
 <img width="2048" height="635" alt="unknown" src="https://github.com/user-attachments/assets/d4555910-336b-47b0-8884-454bb914f9af" />
-Figure: Charging cost per kWh of on-site charging and public charging.
+<p align="center"><em>Figure: Charging cost per kWh of on-site charging and public charging.</em></p>
+
+<br>
 
 The visualisation above compares the cost-effectiveness of investing in depot charging infrastructure versus relying on public charging stations. It highlights the difference in cost per kWh between the two approaches, helping stakeholders assess the most financially viable option. The analysis is based on energy consumption data derived from vehicle telematics, ensuring that the comparison reflects real-world usage patterns.
 
