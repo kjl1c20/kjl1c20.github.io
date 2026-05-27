@@ -33,14 +33,25 @@ Clients required a comprehensive Total Cost of Ownership (TCO) analysis to asses
 
 ### Impact
 - Enabled stakeholders to make data-driven financial decisions when evaluating the transition from ICE to electric vehicles.
-- Bridged the gap between technical data modelling and business insight by delivering clear, accessible outputs for non-technical users.
+- Bridged the gap between technical data modelling and business insight by delivering clear, accessible outputs for non-technical users.  
+
 ### Example Visualisation
-<p align="center">Table: Total cost breakdown for current vs All EV Replacement scenario.</p>
-<img width="2048" height="573" alt="-" src="https://github.com/user-attachments/assets/69dfcb6c-a2d5-424b-82dd-7a4946e19142" />
+**Table: Total cost breakdown — Current (ICE) vs All EV Replacement scenario**
+
+| Metric | Current (ICE) | Replacement (EV) | Change |
+|:-------|:-------------:|:----------------:|:------:|
+| **Total Cost** | £6,896,293.03 | £8,823,426.51 | +28% |
+| **Total Vehicle Costs** | £6,896,293.03 | £7,913,426.51 | +15% |
+| &nbsp;&nbsp;&nbsp; CAPEX Vehicle Costs | £1,382,500.00 | £2,096,875.00 | +52% |
+| &nbsp;&nbsp;&nbsp; OPEX Vehicle Costs | £5,513,793.03 | £5,816,551.51 | +5% |
+| **Total Location Costs** | £0.00 | £910,000.00 | — |
+| &nbsp;&nbsp;&nbsp; CAPEX Location Costs | £0.00 | £850,500.00 | — |
+| &nbsp;&nbsp;&nbsp; OPEX Location Costs | £0.00 | £59,500.00 | — |
+| **CO₂ Emissions** | 13,630.9t | 5,531.7t | −59% |
 
 <br>
 
-<img width="2048" height="635" alt="unknown" src="https://github.com/user-attachments/assets/d4555910-336b-47b0-8884-454bb914f9af" />
+<img alt="kWh Cost Comparison chart" src="assets/charging_chart.png" />
 <p align="center"><em>Figure: Charging cost per kWh of on-site charging and public charging.</em></p>
 
 <br>
