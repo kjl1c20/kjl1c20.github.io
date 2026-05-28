@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamon Work — Lee Kang Jie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Lee Kang Jie</a>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="projects.html">Data Projects</a></li>
+        <li><a href="volunteering.html">Seeds for Thought</a></li>
+        <li><a href="dynamon.html" class="active">Professional Experiences</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Dynamon Work</h1>
+      <p>A showcase of analytics engineering projects delivered at Dynamon — covering data pipeline design, financial modelling, and performance optimisation.</p>
+    </div>
+
+    <!-- Project 1 -->
+    <section class="project">
+      <h2>Emissions Data Quality & Transformation Pipeline</h2>
+
+      <h3>Problem</h3>
+      <p>Emissions modelling relied on multiple raw data sources with inconsistent formats and varying data quality. Key inputs such as UK government CO₂ emission factors are updated annually, requiring a reliable system to track changes over time. Some values were based on fixed assumptions with no consistent way to document when they were last reviewed or where they originated. The lack of clear data lineage and auditability reduced trust in model outputs and made it difficult to trace errors in downstream calculations.</p>
+
+      <h3>Key Work</h3>
+      <ul>
+        <li>Transformed fragmented reference data into a governed schema by modelling emission factors with explicit scopes, units, and in-row provenance (source, year, notes) within a versioned metadata table.</li>
+        <li>Created a single source of truth, exposed via a read-only view representing the latest approved factor set, ensuring all downstream SQL outputs were fully traceable.</li>
+        <li>Enforced data quality at write time using CHECK constraints, a partial unique index, and an active flag to guarantee only one valid version of each factor exists.</li>
+        <li>Implemented append-only versioning using a BEFORE INSERT trigger to retire previously active records and maintain a complete audit history of changes.</li>
+        <li>Prevented invalid or duplicate data from entering the system, improving reliability of downstream calculations and enabling efficient error tracing.</li>
+      </ul>
+
+      <h3>Impact</h3>
+      <ul>
+        <li>Improved trust in emission calculation outputs for consultants and clients.</li>
+        <li>Enabled faster error tracing by distinguishing between calculation errors and source data issues.</li>
+        <li>Created a more reliable and scalable data foundation.</li>
+      </ul>
+    </section>
+
+    <!-- Project 2 -->
+    <section class="project">
+      <h2>Total Cost of Ownership (TCO) Data Model</h2>
+
+      <h3>Problem</h3>
+      <p>Clients required a comprehensive Total Cost of Ownership (TCO) analysis to assess the financial feasibility of transitioning from ICE vehicles to electric vehicles. This involved integrating multiple cost components — vehicle costs, charging infrastructure, and more — into a single model. The challenge was to design a scalable data model that could accommodate new cost factors without significant schema changes, while maintaining fast runtime performance for user-driven recalculations.</p>
+
+      <h3>Key Work</h3>
+      <ul>
+        <li>Translated complex business requirements into structured data transformations and model design.</li>
+        <li>Designed an Entity Relationship Diagram (ERD) to model relationships between existing datasets and newly introduced cost input and output tables.</li>
+        <li>Developed an incremental dbt model to aggregate TCO at the vehicle level and combine it with vehicle specification data for reporting.</li>
+        <li>Designed the model to support extensibility, allowing new cost variables to be added with minimal changes.</li>
+        <li>Built and deployed a Python-based calculation engine as an AWS Lambda function, reducing latency and improving responsiveness for user-driven calculations.</li>
+        <li>Collaborated closely with stakeholders to refine requirements and present outputs in a format suitable for reporting and decision-making.</li>
+      </ul>
+
+      <h3>Impact</h3>
+      <ul>
+        <li>Enabled stakeholders to make data-driven financial decisions when evaluating the transition from ICE to electric vehicles.</li>
+        <li>Bridged the gap between technical data modelling and business insight by delivering clear, accessible outputs for non-technical users.</li>
+      </ul>
+
+      <h3>Example Visualisation</h3>
+      <p><strong>Total cost breakdown — Current (ICE) vs All EV Replacement scenario</strong></p>
+
+      <table class="tco-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Current (ICE)</th>
+            <th>Replacement (EV)</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="parent">
+            <td>Total Cost</td>
+            <td>£6,896,293.03</td>
+            <td>£8,823,426.51</td>
+            <td class="change-pos">+28%</td>
+          </tr>
+          <tr class="parent">
+            <td>Total Vehicle Costs</td>
+            <td>£6,896,293.03</td>
+            <td>£7,913,426.51</td>
+            <td class="change-pos">+15%</td>
+          </tr>
+          <tr>
+            <td class="indent">CAPEX Vehicle Costs</td>
+            <td>£1,382,500.00</td>
+            <td>£2,096,875.00</td>
+            <td class="change-pos">+52%</td>
+          </tr>
+          <tr>
+            <td class="indent">OPEX Vehicle Costs</td>
+            <td>£5,513,793.03</td>
+            <td>£5,816,551.51</td>
+            <td class="change-pos">+5%</td>
+          </tr>
+          <tr class="parent">
+            <td>Total Location Costs</td>
+            <td>£0.00</td>
+            <td>£910,000.00</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="indent">CAPEX Location Costs</td>
+            <td>£0.00</td>
+            <td>£850,500.00</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="indent">OPEX Location Costs</td>
+            <td>£0.00</td>
+            <td>£59,500.00</td>
+            <td>—</td>
+          </tr>
+          <tr class="parent">
+            <td>CO₂ Emissions</td>
+            <td>13,630.9t</td>
+            <td>5,531.7t</td>
+            <td class="change-neg">−59%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="chart-container">
+        <img src="assets/charging_chart.png" alt="Depot Charging vs Public Charging: Cost per kWh" />
+        <p class="chart-caption">Figure: Charging cost per kWh — depot (on-site) charging vs public charging stations.</p>
+      </div>
+
+      <p>The chart above compares the cost-effectiveness of investing in depot charging infrastructure versus relying on public charging stations. The analysis is based on energy consumption data derived from vehicle telematics, ensuring the comparison reflects real-world usage patterns.</p>
+    </section>
+
+    <!-- Project 3 -->
+    <section class="project">
+      <h2>DBT Optimisation</h2>
+
+      <h3>Problem</h3>
+      <p>Product merges were taking a significant amount of time due to full dbt refreshes on large tables with high data volumes. This process often had to be run after hours, consuming considerable developer time and slowing down delivery workflows.</p>
+
+      <h3>Key Work</h3>
+      <ul>
+        <li>Analysed dbt model performance using EXPLAIN ANALYSE to identify query bottlenecks.</li>
+        <li>Optimised SQL logic by removing unnecessary window functions and simplifying transformations.</li>
+        <li>Refactored CTEs to improve logical flow and reduce the volume of data processed during joins with large tables.</li>
+        <li>Reduced data scanned by restructuring queries to filter earlier in the transformation process.</li>
+        <li>Implemented indexing strategies on key dbt tables to improve query performance and join efficiency.</li>
+      </ul>
+
+      <h3>Impact</h3>
+      <ul>
+        <li>Reduced dbt model runtime, enabling faster and more efficient product merges.</li>
+        <li>Decreased manual developer effort required for after-hours processing.</li>
+        <li>Improved overall performance and scalability of the data transformation layer.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Lee Kang Jie</p>
+  </footer>
+</body>
+</html>
