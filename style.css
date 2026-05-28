@@ -422,6 +422,10 @@ main {
   flex-shrink: 0;
 }
 
+.enactus-header h2 {
+  margin-bottom: 0.25rem;
+}
+
 /* Photo grid (3-up) */
 .photo-grid {
   display: grid;
