@@ -295,6 +295,70 @@ main {
   margin-top: 1rem;
 }
 
+/* Project cards (detailed) */
+.project-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.project-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.project-card-body {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.project-card-section p,
+.project-card-section ul {
+  font-size: 0.925rem;
+  color: var(--text);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.project-card-section ul {
+  padding-left: 1.25rem;
+}
+
+.project-card-section ul li {
+  margin-bottom: 0.3rem;
+}
+
+.project-card-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
 /* Dynamon project sections */
 .project {
   margin-bottom: 3.5rem;
@@ -303,6 +367,25 @@ main {
 }
 
 .project:last-child { border-bottom: none; }
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-title-row h2 {
+  margin-bottom: 0;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
 
 .project h2 {
   font-size: 1.4rem;

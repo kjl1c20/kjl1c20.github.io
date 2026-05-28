@@ -25,36 +25,105 @@
       <p>Side projects exploring EVs, data analysis, and infrastructure.</p>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-title">EV Learning Kit</div>
-        <p class="card-desc">An interactive learning platform built to help people understand electric vehicles — covering fundamentals, charging, and the broader EV ecosystem.</p>
-        <div class="tags" style="margin-bottom: 1rem;">
-          <span class="tag">Python</span>
-          <span class="tag">RAG</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">AWS</span>
+    <div class="project-card-list">
 
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div>
+            <div class="project-card-title">EV Learning Kit</div>
+            <div class="tags" style="margin-top: 0.6rem;">
+              <span class="tag">Python</span>
+              <span class="tag">RAG</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Claude API</span>
+              <span class="tag">OpenAI Embeddings</span>
+            </div>
+          </div>
+          <a href="https://github.com/kjl1c20/ev-learning-kit" target="_blank" rel="noopener" class="btn btn-outline btn-sm">View on GitHub →</a>
         </div>
-        <div class="card-footer">
-          <a href="https://github.com/kjl1c20/ev-learning-kit" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub →</a>
+
+        <div class="project-card-body">
+          <div class="project-card-section">
+            <div class="project-card-label">Goal</div>
+            <p>Build a RAG-based application that answers questions about electric vehicles and generates realistic DC charge curves for any vehicle class, combining a curated knowledge base with an LLM-driven curve engine backed by real reference profiles.</p>
+          </div>
+
+          <div class="project-card-section">
+            <div class="project-card-label">Problem</div>
+            <p>When I first joined the EV industry, I struggled to build a solid foundation of knowledge. Technical concepts around battery chemistry, charging behaviour, and powertrain systems were scattered across dozens of sources with inconsistent quality, and there was no easy way to see how charge curves actually behave across different vehicle classes and conditions. I wanted to create something I wish I had when I started: a single platform that pools trusted sources and lets users interact with the concepts directly rather than just reading about them.</p>
+          </div>
+
+          <div class="project-card-section">
+            <div class="project-card-label">Key Work</div>
+            <ul>
+              <li>Built an EV Q&A system that retrieves relevant knowledge chunks from a curated knowledge base and generates grounded answers via Claude, reducing hallucination risk through retrieval augmentation.</li>
+              <li>Built a Charge Curve Generator that takes vehicle class, battery size, and max DC power as inputs and produces a native charge curve alongside a delivered curve clipped to the site charger capacity, with supporting metrics and reasoning.</li>
+              <li>Built an incremental RAG ingestion pipeline using OpenAI embeddings stored in PostgreSQL via pgvector, sourcing from curated EV articles and technical PDFs, with only new content embedded on each run.</li>
+              <li>Deployed the knowledge base on AWS RDS with credentials managed via Secrets Manager and exposed both capabilities via a FastAPI backend with a Next.js frontend for interactive use.</li>
+            </ul>
+          </div>
+
+          <div class="project-card-section">
+            <div class="project-card-label">Impact</div>
+            <ul>
+              <li>Produces grounded, cited answers to EV questions, reducing hallucination risk through retrieval augmentation.</li>
+              <li>Enables users to simulate realistic charging behaviour for different vehicle classes.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-title">Chargepoint Load Analysis</div>
-        <p class="card-desc">Uses real-world EV charging session data from Scotland's Chargepoint network to identify where additional charging infrastructure is needed most.</p>
-        <div class="tags" style="margin-bottom: 1rem;">
-          <span class="tag">Python</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">AWS</span>
-          <span class="tag">ETL</span>
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div>
+            <div class="project-card-title">Chargepoint Load Analysis</div>
+            <div class="tags" style="margin-top: 0.6rem;">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">ETL</span>
+            </div>
+          </div>
+          <a href="https://github.com/kjl1c20/chargepoint-load-analysis" target="_blank" rel="noopener" class="btn btn-outline btn-sm">View on GitHub →</a>
         </div>
-        <div class="card-footer">
-          <a href="https://github.com/kjl1c20/chargepoint-load-analysis" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub →</a>
+
+        <div class="project-card-body">
+          <div class="project-card-section">
+            <div class="project-card-label">Goal</div>
+            <p>Use real-world EV charging session data from Scotland's Chargepoint network to identify where additional charging infrastructure is needed most, supporting data-driven decisions for EV infrastructure planning.</p>
+          </div>
+
+          <div class="project-card-section">
+            <div class="project-card-label">Problem</div>
+            <p>As EV adoption grows, understanding where charging demand exceeds capacity is critical for infrastructure planning. Identifying high-pressure regions from session-level data requires feature engineering, temporal analysis, and a classification model that can flag congestion-risk areas before they become bottlenecks.</p>
+          </div>
+
+          <div class="project-card-section">
+            <div class="project-card-label">Key Work</div>
+            <ul>
+              <li>Built an ETL pipeline to harvest session data from the Smart Energy Data Service API, clean raw records, and extract time features (hour, day, month).</li>
+              <li>Defined a binary classification target — <em>needs more chargers (1) vs sufficient capacity (0)</em> — based on utilisation rate thresholds and peak demand analysis.</li>
+              <li>Trained and evaluated Logistic Regression, Random Forest, and XGBoost models using accuracy, precision, recall, F1, and ROC-AUC.</li>
+              <li>Produced a heatmap of infrastructure pressure across Scotland using GeoPandas and Folium, and built a Streamlit dashboard for interactive exploration.</li>
+            </ul>
+          </div>
+
+          <div class="project-card-section">
+            <div class="project-card-label">Impact</div>
+            <ul>
+              <li>Produced a ranked list of high-priority regions for new charging infrastructure, directly actionable for infrastructure planners.</li>
+              <li>Surfaced temporal demand patterns (peak hours, weekday vs weekend usage) to inform charger deployment timing.</li>
+            </ul>
+          </div>
         </div>
       </div>
+
     </div>
   </main>
 
