@@ -384,8 +384,10 @@ main {
   font-weight: 400;
 }
 
-.change-pos { color: #dc2626; font-weight: 600; }
-.change-neg { color: #059669; font-weight: 600; }
+.tco-table tr td.change-pos,
+.tco-table tr.parent td.change-pos { color: #dc2626; font-weight: 600; }
+.tco-table tr td.change-neg,
+.tco-table tr.parent td.change-neg { color: #059669; font-weight: 600; }
 
 /* Chart */
 .chart-container { margin: 1.5rem 0; }
