@@ -53,8 +53,8 @@
           </div>
 
           <div class="project-card-section">
-            <div class="project-card-label">Problem</div>
-            <p>When I first joined the EV industry, I struggled to build a solid foundation of knowledge. Technical concepts around battery chemistry, charging behaviour, and powertrain systems were scattered across dozens of sources with inconsistent quality, and there was no easy way to see how charge curves actually behave across different vehicle classes and conditions. I wanted to create something I wish I had when I started: a single platform that pools trusted sources and lets users interact with the concepts directly rather than just reading about them.</p>
+            <div class="project-card-label">Background</div>
+            <p>When I first joined the EV industry, I spent weeks trying to piece together the fundamentals from documentation scattered across the web. It was frustrating, and I knew I was not the only one going through it. So I decided to build something that would have helped me back then. A tool that brings EV technical knowledge together in one place and actually lets you have a conversation with it, using RAG over EV technical documentation with charging behaviour modelling built in.</p>
           </div>
 
           <div class="project-card-section">
@@ -85,7 +85,7 @@
             <div class="tags" style="margin-top: 0.6rem;">
               <span class="tag">Python</span>
               <span class="tag">Machine Learning</span>
-              <span class="tag">XGBoost</span>
+              <span class="tag">Geospatial</span>
               <span class="tag">Streamlit</span>
               <span class="tag">ETL</span>
             </div>
@@ -96,29 +96,29 @@
         <div class="project-card-body">
           <div class="project-card-section">
             <div class="project-card-label">Goal</div>
-            <p>Use real-world EV charging session data from Scotland's Chargepoint network to identify where additional charging infrastructure is needed most, supporting data-driven decisions for EV infrastructure planning.</p>
+            <p>Use real-world EV charging session data from Scotland's ChargePlace network to identify where additional infrastructure is needed and what type of capacity to add, giving planners evidence-based, actionable recommendations.</p>
           </div>
 
           <div class="project-card-section">
-            <div class="project-card-label">Problem</div>
-            <p>As EV adoption grows, understanding where charging demand exceeds capacity is critical for infrastructure planning. Identifying high-pressure regions from session-level data requires feature engineering, temporal analysis, and a classification model that can flag congestion-risk areas before they become bottlenecks.</p>
+            <div class="project-card-label">Background</div>
+            <p>When I discovered the UK's public EV charging network might not be keeping pace with rising EV adoption, I wanted to find out if there was enough public infrastructure to meet demand. ChargePlace Scotland publishes real session level data, which gave me the chance to investigate. This project aims to use machine learning to surface charging patterns across Scotland and identify which regions are facing the most pressure.</p>
           </div>
 
           <div class="project-card-section">
             <div class="project-card-label">Key Work</div>
             <ul>
-              <li>Built an ETL pipeline to harvest session data from the Smart Energy Data Service API, clean raw records, and extract time features (hour, day, month).</li>
-              <li>Defined a binary classification target — <em>needs more chargers (1) vs sufficient capacity (0)</em> — based on utilisation rate thresholds and peak demand analysis.</li>
-              <li>Trained and evaluated Logistic Regression, Random Forest, and XGBoost models using accuracy, precision, recall, F1, and ROC-AUC.</li>
-              <li>Produced a heatmap of infrastructure pressure across Scotland using GeoPandas and Folium, and built a Streamlit dashboard for interactive exploration.</li>
+              <li>Built an ETL pipeline to harvest session data from ChargePlace Scotland public session data.</li>
+              <li>Engineered saturation and utilisation metrics per charge point using a sweep-line algorithm to detect simultaneous connector occupancy; enriched connector counts via the Open Charge Map API with a spatial join</li>
+              <li>Clustered charge points into 4 behavioural archetypes using KMeans on session shape features</li>
+              <li>Built an interactive Streamlit dashboard with a pressure ranking, geographic map, archetype breakdown, and planning recommendations per local authority</li>
             </ul>
           </div>
 
           <div class="project-card-section">
             <div class="project-card-label">Impact</div>
             <ul>
-              <li>Produced a ranked list of high-priority regions for new charging infrastructure, directly actionable for infrastructure planners.</li>
-              <li>Surfaced temporal demand patterns (peak hours, weekday vs weekend usage) to inform charger deployment timing.</li>
+              <li>The Demand-Pressure Index gives infrastructure planners a ranked, evidence-based shortlist of local authorities to prioritise for new charging investment, with saturation and utilisation rates as transparent supporting evidence</li>
+              <li>Provided evidence-based recommendations for the type of capacity to add, giving planners actionable insights.</li>
             </ul>
           </div>
         </div>
