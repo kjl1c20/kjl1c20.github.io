@@ -84,10 +84,12 @@
             <div class="project-card-title">Chargepoint Load Analysis</div>
             <div class="tags" style="margin-top: 0.6rem;">
               <span class="tag">Python</span>
-              <span class="tag">Machine Learning</span>
+              <span class="tag">PySpark</span>
+              <span class="tag">Delta Lake</span>
               <span class="tag">Databricks</span>
-              <span class="tag">Streamlit</span>
               <span class="tag">ETL</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Claude API</span>
             </div>
           </div>
           <a href="https://github.com/kjl1c20/chargepoint-load-analysis" target="_blank" rel="noopener" class="btn btn-outline btn-sm">View on GitHub →</a>
@@ -107,18 +109,21 @@
           <div class="project-card-section">
             <div class="project-card-label">Key Work</div>
             <ul>
-              <li>Built an ETL pipeline to harvest session data from ChargePlace Scotland public session data.</li>
-              <li>Engineered saturation and utilisation metrics per charge point using a sweep-line algorithm to detect simultaneous connector occupancy; enriched connector counts via the Open Charge Map API with a spatial join.</li>
-              <li>Clustered charge points into 4 behavioural archetypes using KMeans on session shape features.</li>
-              <li>Built an interactive Streamlit dashboard with a pressure ranking, geographic map, archetype breakdown, and planning recommendations per local authority.</li>
+              <li>Analysed utilisation and energy consumption across all public EV charging points in Scotland using charging profiles, visualised through an interactive Streamlit dashboard.</li>
+              <li>Built a production grade Medallion ETL pipeline on Databricks using PySpark and Delta Lake, automating ingestion of charging sessions and connector level location data into Databricks volumes and tables.</li>
+              <li>Orchestrated the Bronze to Silver to Gold refresh as a scheduled Databricks Workflow that parallelises the two independent Silver builds.</li>
+              <li>Built an AI agent using Claude, grounded with the web search and web fetch tools, that suggests fixes for postcode and coordinate anomalies identified by a deterministic data quality system. The system triangulates the feed postcode, coordinates reverse geocoded in bulk via the postcodes.io API, and writes findings into an data quality review table.</li>
+              <li>Deduplicated prompts across charge points sharing a site and ran requests concurrently to cut the cost and latency of the AI step.</li>
+              <li>Designed a Demand Pressure Index per charge point, computing saturation the time all connectors are simultaneously occupied and utilisation as occupied over available connector hours, then combining both into a weighted percentile rank to identify which charging sites are most strained and should be prioritised for new infrastructure.</li>
             </ul>
           </div>
 
           <div class="project-card-section">
             <div class="project-card-label">Impact</div>
             <ul>
-              <li>The Demand-Pressure Index gives infrastructure planners a ranked, evidence-based shortlist of local authorities to prioritise for new charging investment, with saturation and utilisation rates as transparent supporting evidence.</li>
-              <li>Provided evidence-based recommendations for the type of capacity to add, giving planners actionable insights.</li>
+              <li>Gives infrastructure planners a ranked, evidence based shortlist of individual charging sites to prioritise for new investment, with saturation and utilisation rates as transparent supporting evidence rather than a black box score.</li>
+              <li>Eliminated the need to manually run and monitor the data pipeline by replacing three individually triggered scripts with a single scheduled Databricks Workflow.</li>
+              <li>Reduced the manual effort needed to correct mislocated charge points by automating fix suggestions through an AI agent, while keeping every correction human reviewed and auditable.</li>
             </ul>
           </div>
         </div>
