@@ -387,6 +387,12 @@ main {
   white-space: nowrap;
 }
 
+.project-card-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .project h2 {
   font-size: 1.4rem;
   font-weight: 700;
